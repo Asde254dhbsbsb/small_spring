@@ -1,12 +1,18 @@
 package com.zy.springframework.beans.factory.support;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.StrUtil;
 import com.zy.springframework.beans.BeansException;
 import com.zy.springframework.beans.PropertyValue;
 import com.zy.springframework.beans.PropertyValues;
+import com.zy.springframework.beans.factory.DisposableBean;
+import com.zy.springframework.beans.factory.InitializingBean;
+import com.zy.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import com.zy.springframework.beans.factory.config.BeanDefinition;
+import com.zy.springframework.beans.factory.config.BeanPostProcessor;
 import com.zy.springframework.beans.factory.config.BeanReference;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 
 /**
  * @author zy
@@ -16,7 +22,7 @@ import java.lang.reflect.Constructor;
  * 实现了Bean的实例化操作 newInstance
  * 但是有构造函数入参的对象怎么处理呢？
  * */
-public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
+public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory implements AutowireCapableBeanFactory {
 
     private InstantiationStrategy instantiationStrategy = new CglibSubclassingInstantiationStrategy();
 
@@ -27,12 +33,22 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
             bean = createBeanInstance(beanDefinition, beanName, args);
 //            给Bean填充属性
             applyProperValues(beanName, bean, beanDefinition);
+//            执行初始化方法和BeanPostProcessor的前置和后置处理方法
+            bean = initializeBean(beanName, bean, beanDefinition);
         } catch (Exception e) {
             throw new BeansException("Instantiation of bean failed", e);
         }
-
+//      注册实现了 DisposableBean 接口的Bean对象
+        registerDisposableBeanIfNecessary(beanName, bean, beanDefinition);
         addSingleton(beanName, bean);
         return bean;
+    }
+
+    protected void registerDisposableBeanIfNecessary(String beanName, Object bean, BeanDefinition beanDefinition) {
+        if (bean instanceof DisposableBean ||
+                StrUtil.isNotEmpty(beanDefinition.getDestroyMethodName())) {
+            registerDisposableBean(beanName, new DisposableBeanAdapter(bean, beanName, beanDefinition));
+        }
     }
 
     /**
@@ -84,5 +100,62 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
     public void setInstantiationStrategy(InstantiationStrategy instantiationStrategy) {
         this.instantiationStrategy = instantiationStrategy;
+    }
+
+    private Object initializeBean(String beanName, Object bean, BeanDefinition beanDefinition) throws BeansException {
+        Object wrappedBean = applyBeanPostProcessorsBeforeInitialization(bean, beanName);
+//      执行Bean 对象的初始化方法
+        try {
+            invokeInitMethods(beanName, wrappedBean, beanDefinition);
+        } catch (Exception e) {
+            throw new BeansException("Invocation of init method of bean[" + beanName + "] failed", e);
+        }
+
+        wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
+        return wrappedBean;
+    }
+
+    /**
+     * 初始化方法
+     * 使用者可以在initMethod里面额外新增自己想要的动作
+     * */
+    private void invokeInitMethods(String beanName, Object wrappedBean, BeanDefinition beanDefinition) throws Exception {
+//        1.实现接口
+        if (wrappedBean instanceof InitializingBean) {
+            ((InitializingBean) wrappedBean).afterPropertiesSet();
+        }
+//        2.配置信息 init-method(判断是为了避免二次执行销毁)
+        String initMethodName = beanDefinition.getInitMethodName();
+        if (StrUtil.isNotEmpty(initMethodName)) {
+//            获取初始化方法名
+            Method initMethod = beanDefinition.getBeanClass().getMethod(initMethodName);
+            if (null == initMethod) {
+                throw new BeansException("Could not find an init method named '" + initMethodName + "' on bean with name '" + beanName + "'");
+            }
+//            初始化!
+            initMethod.invoke(wrappedBean);
+        }
+    }
+    @Override
+    public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName) throws BeansException {
+        Object result = existingBean;
+        for(BeanPostProcessor postProcessor : getBeanPostProcessors()) {
+            Object current = postProcessor.postProcessBeforeInitialization(result, beanName);
+            if (null == current) return result;
+            result = current;
+        }
+        return result;
+    }
+
+    @Override
+    public Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName) throws BeansException {
+        Object result = existingBean;
+        for(BeanPostProcessor postProcessor : getBeanPostProcessors()) {
+            Object current = postProcessor.postProcessorAfterInitialization(result, beanName);
+            if (null == current) return result;
+            result = current;
+        }
+        return result;
+
     }
 }

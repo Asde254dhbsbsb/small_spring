@@ -1,4 +1,4 @@
-package com.zy.springframework.beans.factory.support;
+package com.zy.springframework.beans.factory.xml;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.XmlUtil;
@@ -6,6 +6,8 @@ import com.zy.springframework.beans.BeansException;
 import com.zy.springframework.beans.PropertyValue;
 import com.zy.springframework.beans.factory.config.BeanDefinition;
 import com.zy.springframework.beans.factory.config.BeanReference;
+import com.zy.springframework.beans.factory.support.AbstractBeanDefinitionReader;
+import com.zy.springframework.beans.factory.support.BeanDefinitionRegistry;
 import com.zy.springframework.core.io.Resource;
 import com.zy.springframework.core.io.ResourceLoader;
 import org.w3c.dom.Document;
@@ -23,7 +25,7 @@ import java.io.InputStream;
 /**
  * 解析Xml文件并注册 --- bean定义；
  * */
-public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader{
+public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
     public XmlBeanDefinitionReader(BeanDefinitionRegistry registry) {
         super(registry);
@@ -34,7 +36,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader{
     }
 
     @Override
-    public void loadBeanDefinition(Resource resource) throws BeansException {
+    public void loadBeanDefinitions(Resource resource) throws BeansException {
         try {
             try(InputStream inputStream = resource.getInputStream()) {
                 doLoadBeanDefinition(inputStream);
@@ -45,19 +47,25 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader{
     }
 
     @Override
-    public void loadBeanDefinition(Resource... resources) throws BeansException {
+    public void loadBeanDefinitions(Resource... resources) throws BeansException {
         for(Resource resource : resources) {
-            loadBeanDefinition(resource);
+            loadBeanDefinitions(resource);
         }
     }
 
     @Override
-    public void loadBeanDefinition(String location) throws BeansException {
+    public void loadBeanDefinitions(String location) throws BeansException {
         ResourceLoader resourceLoader = getResourceLoader();
         Resource resource = resourceLoader.getResource(location);
-        loadBeanDefinition(resource);
+        loadBeanDefinitions(resource);
     }
 
+    @Override
+    public void loadBeanDefinitions(String... locations) throws BeansException {
+        for (String location : locations) {
+            loadBeanDefinitions(location);
+        }
+    }
     /**
      * 解析XML文件
      * XmlUtil.readXML(inputStream) 和元素Element的解析
@@ -79,6 +87,8 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader{
             String id = bean.getAttribute("id");
             String name = bean.getAttribute("name");
             String className = bean.getAttribute("class");
+            String initMethod = bean.getAttribute("init-method");
+            String destroyMethod = bean.getAttribute("destroy-method");
 //            获取Class，方便获取类中的名称
             Class<?> clazz = Class.forName(className);
 //            优先级 id > name
@@ -89,6 +99,8 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader{
 
 //            定义Bean
             BeanDefinition beanDefinition = new BeanDefinition(clazz);
+            beanDefinition.setInitMethodName(initMethod);
+            beanDefinition.setDestroyMethodName(destroyMethod);
 //            读取属性并填充
             for (int j = 0; j < bean.getChildNodes().getLength(); j++) {
                 if (!(bean.getChildNodes().item(j) instanceof Element)) continue;

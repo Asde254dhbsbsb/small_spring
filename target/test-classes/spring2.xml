@@ -3,6 +3,11 @@
     <bean id="userDao" class="com.zy.springframework.test.bean.UserDao"/>
     <bean id="userService" class="com.zy.springframework.test.bean.UserService">
         <property name="uId" value="10001"/>
-        <property name="userDao" value="userDao"/>
+        <property name="userDao" ref="userDao"/>
+        <property name="location" value="深圳"/>
+        <property name="company" value="腾讯"/>
     </bean>
+
+    <bean class="com.zy.springframework.test.common.MyBeanFactoryPostProcessor"/>
+    <bean class="com.zy.springframework.test.common.MyBeanPostProcessor"/>
 </beans>

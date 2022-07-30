@@ -1,8 +1,7 @@
 package com.zy.springframework.test;
 
 import com.zy.springframework.beans.BeansException;
-import com.zy.springframework.beans.factory.support.DefaultListableBeanFactory;
-import com.zy.springframework.beans.factory.support.XmlBeanDefinitionReader;
+import com.zy.springframework.context.support.ClassPathXmlApplicationContext;
 import com.zy.springframework.test.bean.UserService;
 import org.junit.Test;
 
@@ -13,12 +12,15 @@ import org.junit.Test;
 public class XmlBeanRegistryTest {
     @Test
     public void test_xml() throws BeansException {
-        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-
-        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
-        reader.loadBeanDefinition("classpath:spring.xml");
-
-        UserService userService = beanFactory.getBean("userService", UserService.class);
+//        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+//
+//        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
+//        reader.loadBeanDefinitions("classpath:spring.xml");
+//
+//        UserService userService = beanFactory.getBean("userService", UserService.class);
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:noclass.xml");
+//        applicationContext.registerShutdownHook();
+        UserService userService = (UserService)applicationContext.getBean("userService");
         String result = userService.queryUserInfo();
         System.out.println(result);
 

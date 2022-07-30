@@ -2,7 +2,13 @@ package com.zy.springframework.beans.factory.support;
 
 import com.zy.springframework.beans.BeansException;
 import com.zy.springframework.beans.factory.BeanFactory;
+import com.zy.springframework.beans.factory.DisposableBean;
 import com.zy.springframework.beans.factory.config.BeanDefinition;
+import com.zy.springframework.beans.factory.config.BeanPostProcessor;
+import com.zy.springframework.beans.factory.config.ConfigurableBeanFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author zy
@@ -14,7 +20,10 @@ import com.zy.springframework.beans.factory.config.BeanDefinition;
  * 在getBean方法中，获取不到时需要拿到Bean定义做相应的实例化
  * 并没有自身实现这些方法，而是定义了调用过程以及提供了抽象方法  由实现此抽象类的其他类做相应调用
  * */
-public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {
+public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements ConfigurableBeanFactory {
+
+    /** BeanPostProcessors to apply in createBean */
+    private final List<BeanPostProcessor> beanPostProcessors = new ArrayList<BeanPostProcessor>();
 
     @Override
     public Object getBean(String name) throws BeansException {
@@ -42,4 +51,18 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
 
     protected abstract BeanDefinition getBeanDefinition(String beanName) throws BeansException ;
     protected abstract Object createBean(String beanName, BeanDefinition beanDefinition, Object[] args) throws BeansException ;
+
+    @Override
+    public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor){
+        this.beanPostProcessors.remove(beanPostProcessor);
+        this.beanPostProcessors.add(beanPostProcessor);
+    }
+
+    /**
+     * Return the list of BeanPostProcessors that will get applied
+     * to beans created with this factory.
+     */
+    public List<BeanPostProcessor> getBeanPostProcessors() {
+        return this.beanPostProcessors;
+    }
 }
