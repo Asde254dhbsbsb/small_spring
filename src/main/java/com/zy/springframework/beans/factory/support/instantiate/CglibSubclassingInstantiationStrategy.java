@@ -1,4 +1,4 @@
-package com.zy.springframework.beans.factory.support;
+package com.zy.springframework.beans.factory.support.instantiate;
 
 import com.zy.springframework.beans.BeansException;
 import com.zy.springframework.beans.factory.config.BeanDefinition;
@@ -14,7 +14,7 @@ import java.lang.reflect.Constructor;
 /**
  * 使用Cglib 动态来创建对象
  * */
-public class CglibSubclassingInstantiationStrategy implements InstantiationStrategy{
+public class CglibSubclassingInstantiationStrategy implements InstantiationStrategy {
     @Override
     public Object instantiate(BeanDefinition beanDefinition, String beanName, Constructor ctor, Object[] args) throws BeansException {
         Enhancer enhancer = new Enhancer();

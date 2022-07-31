@@ -19,9 +19,11 @@ public class XmlBeanRegistryTest {
 //
 //        UserService userService = beanFactory.getBean("userService", UserService.class);
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:noclass.xml");
-//        applicationContext.registerShutdownHook();
+        applicationContext.registerShutdownHook();
         UserService userService = (UserService)applicationContext.getBean("userService");
         String result = userService.queryUserInfo();
+        System.out.println("ApplicationContextAware:" + userService.getApplicationContext());
+        System.out.println("BeanFactoryAware:" + userService.getBeanFactory());
         System.out.println(result);
 
     }

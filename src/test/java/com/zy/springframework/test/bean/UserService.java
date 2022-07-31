@@ -1,13 +1,17 @@
 package com.zy.springframework.test.bean;
 
-import com.zy.springframework.beans.factory.DisposableBean;
-import com.zy.springframework.beans.factory.InitializingBean;
+import com.zy.springframework.beans.factory.*;
+import com.zy.springframework.context.ApplicationContext;
+import com.zy.springframework.context.ApplicationContextAware;
 
 /**
  * @author zy
  * @since 2022/7/23  16:42
  */
-public class UserService implements InitializingBean, DisposableBean {
+public class UserService implements /*InitializingBean, DisposableBean*/ BeanNameAware, BeanClassLoaderAware, BeanFactoryAware , ApplicationContextAware {
+
+    private ApplicationContext applicationContext;
+    private BeanFactory beanFactory;
     private String uId;
     private String company;
     private String location;
@@ -19,14 +23,22 @@ public class UserService implements InitializingBean, DisposableBean {
         return toString();
     }
 
-    @Override
-    public void destroy() throws Exception {
-        System.out.println("执行：UserService.destroy");
+//    @Override
+//    public void destroy() throws Exception {
+//        System.out.println("执行：UserService.destroy");
+//    }
+//
+//    @Override
+//    public void afterPropertiesSet() throws Exception {
+//        System.out.println("执行 ： UserService.afterPropertiesSet");
+//    }
+
+    public ApplicationContext getApplicationContext() {
+        return applicationContext;
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("执行 ： UserService.afterPropertiesSet");
+    public BeanFactory getBeanFactory() {
+        return beanFactory;
     }
 
     @Override
@@ -70,5 +82,22 @@ public class UserService implements InitializingBean, DisposableBean {
 
     public void setuId(String uId) {
         this.uId = uId;
+    }
+
+    public void setApplicationContext(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
+    }
+
+    public void setBeanFactory(BeanFactory beanFactory) {
+        this.beanFactory = beanFactory;
+    }
+
+    public void setBeanClassLoader(ClassLoader classLoader) {
+        System.out.println("ClassLoader: " + classLoader);
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        System.out.println("Bean Name is: " + name);
     }
 }
