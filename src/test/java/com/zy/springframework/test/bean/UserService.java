@@ -15,7 +15,8 @@ public class UserService implements /*InitializingBean, DisposableBean*/ BeanNam
     private String uId;
     private String company;
     private String location;
-    private UserDao userDao;
+//    private UserDao userDao;
+    private IUserDao userDao;
 
     public String queryUserInfo() {
         System.out.println("查询用户信息" +
@@ -41,17 +42,10 @@ public class UserService implements /*InitializingBean, DisposableBean*/ BeanNam
         return beanFactory;
     }
 
-    @Override
-    public String toString() {
-        return "UserService{" +
-                "uId='" + uId + '\'' +
-                ", company='" + company + '\'' +
-                ", location='" + location + '\'' +
-                ", userDao=" + userDao +
-                '}';
-    }
+
 
     public UserService(){}
+
     public String getuId() {
         return uId;
     }
@@ -72,11 +66,11 @@ public class UserService implements /*InitializingBean, DisposableBean*/ BeanNam
         this.location = location;
     }
 
-    public UserDao getUserDao() {
+    public IUserDao getUserDao() {
         return userDao;
     }
 
-    public void setUserDao(UserDao userDao) {
+    public void setUserDao(IUserDao userDao) {
         this.userDao = userDao;
     }
 

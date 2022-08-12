@@ -105,8 +105,8 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
             if(StrUtil.isNotEmpty(beanScope)) {
                 beanDefinition.setScope(beanScope);
             }
-//            beanDefinition.setSingleton(beanScope.equals("singleton"));
-//            beanDefinition.setPrototype(!beanScope.equals("prototype"));
+            beanDefinition.setSingleton(!StrUtil.isNotEmpty(beanScope) || beanScope.equals("singleton"));
+            beanDefinition.setPrototype(!beanDefinition.isSingleton());
 //            读取属性并填充
             for (int j = 0; j < bean.getChildNodes().getLength(); j++) {
                 if (!(bean.getChildNodes().item(j) instanceof Element)) continue;

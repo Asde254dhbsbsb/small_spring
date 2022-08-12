@@ -5,54 +5,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa2bc1ac-aa99-4d47-ab45-8bb948dc33ca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/DisposableBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/InitializingBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/config/BeanFactoryPostProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/config/BeanPostProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/DisposableBeanAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/ApplicationContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/ConfigurableApplicationContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/support/AbstractApplicationContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/support/AbstractRefreshableApplicationContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/support/AbstractXmlApplicationContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/support/ClassPathXmlApplicationContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/common/MyBeanFactoryPostProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/common/MyBeanPostProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/noclass.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/spring2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/Advice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/AdvisedSupport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/Advisor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/BeforeAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/ClassFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/MethodBeforeAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/MethodMatcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/Pointcut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/PointcutAdvisor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/TargetSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/aspectj/AspectJExpressionPointcut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/aspectj/AspectJExpressionPointcutAdvisor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/framework/AopProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/framework/Cglib2AopProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/framework/JdkDynamicAopProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/framework/ProxyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/framework/ReflectiveMethodInvocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/framework/adapter/MethodBeforeAdviceInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/aop/framework/autoproxy/DefaultAdvisorAutoProxyCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/config/InstantiationAwareBeanPostProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/ApplicationEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/ApplicationEventPublisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/ApplicationListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/event/AbstractApplicationEventMulticaster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/event/ApplicationContextEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/event/ApplicationEventMulticaster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/event/ContextClosedEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/event/ContextRefreshedEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/event/SimpleApplicationEventMulticaster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/TestFactoryBeanAndPrototype.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/aoptest/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/aoptest/User1Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/aoptest/UserServiceBeforeAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/aoptest/UserServiceInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/bean/ContextClosedEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/bean/ContextRefreshedEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/bean/CustomEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/bean/CustomEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/bean/IUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/bean/ProxyBeanFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/aoparound.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/listener.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/ConfigurableListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/ConfigurableListableBeanFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/config/AutowireCapableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/config/AutowireCapableBeanFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/config/BeanDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/config/BeanDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/config/ConfigurableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/config/ConfigurableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/FactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/FactoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/config/SingletonBeanRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/config/SingletonBeanRegistry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/AbstractBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/AbstractBeanFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/BeanDefinitionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/BeanDefinitionReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/BeanFactoryRegistry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/DefaultListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/DefaultListableBeanFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/XmlBeanDefinitionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/xml/XmlBeanDefinitionReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/FactoryBeanRegistrySupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/support/FactoryBeanRegistrySupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/xml/XmlBeanDefinitionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/beans/factory/xml/XmlBeanDefinitionReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/support/AbstractApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/context/support/AbstractApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zy/springframework/utils/ClassUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zy/springframework/utils/ClassUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/important.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/ApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/ApiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/XmlBeanRegistryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/XmlBeanRegistryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/bean/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/bean/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/bean/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zy/springframework/test/bean/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/noclass.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/noclass.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/spring.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/ConfigurableListableBeanFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/ConfigurableListableBeanFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/config/AutowireCapableBeanFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/config/AutowireCapableBeanFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/config/BeanDefinition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/config/BeanDefinition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/config/ConfigurableBeanFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/config/ConfigurableBeanFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/config/SingletonBeanRegistry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/config/SingletonBeanRegistry.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/AbstractBeanDefinitionReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/AbstractBeanDefinitionReader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/AbstractBeanFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/AbstractBeanFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/BeanDefinitionReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/BeanDefinitionReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/BeanFactoryRegistry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/DefaultListableBeanFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/DefaultListableBeanFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/CglibSubclassingInstantiationStrategy$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/CglibSubclassingInstantiationStrategy.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/DefaultSingletonBeanRegistry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/DefaultSingletonBeanRegistry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/XmlBeanDefinitionReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spring.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/InstantiationStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/support/SimpleInstantiationStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/xml/XmlBeanDefinitionReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/beans/factory/xml/XmlBeanDefinitionReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/context/support/AbstractApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/context/support/AbstractApplicationContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zy/springframework/utils/ClassUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zy/springframework/utils/ClassUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/important.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/zy/springframework/test/ApiTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/zy/springframework/test/ApiTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/zy/springframework/test/XmlBeanRegistryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/zy/springframework/test/XmlBeanRegistryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/zy/springframework/test/bean/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/zy/springframework/test/bean/UserDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/zy/springframework/test/bean/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/zy/springframework/test/bean/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/noclass.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/noclass.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/spring.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,15 +118,15 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="E:\Java\apache-maven-3.8.5-bin\maven_repo" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../apache-maven-3.8.5-bin/apache-maven-3.8.5" />
+        <option name="localRepository" value="D:\maven\repository" />
+        <option name="mavenHome" value="D:/maven/apache-maven-3.8.6" />
         <option name="useMavenConfig" value="true" />
-        <option name="userSettingsFile" value="E:\Java\apache-maven-3.8.5-bin\apache-maven-3.8.5\conf\settings.xml" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.8.6\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2CU4s2SCTYWcg0wicmKklds9DnJ" />
   <component name="ProjectLevelVcsManager">
@@ -105,18 +136,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
-  </component>
-  <component name="RunManager" selected="JUnit.XmlBeanRegistryTest.test_xml">
-    <configuration name="ApiTest.test_BeanFactoryPostProcessorAndBeanPostProcessor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="small_spring_2" />
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/java/small_spring/small_spring&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.34712642&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
+  }
+}</component>
+  <component name="RunManager" selected="JUnit.ApiTest.test_compareTo">
+    <configuration name="ApiTest.test_aop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="small_spring" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.zy.springframework.test.*" />
@@ -125,14 +161,14 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.zy.springframework.test" />
       <option name="MAIN_CLASS_NAME" value="com.zy.springframework.test.ApiTest" />
-      <option name="METHOD_NAME" value="test_BeanFactoryPostProcessorAndBeanPostProcessor" />
+      <option name="METHOD_NAME" value="test_aop" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ResourceLoaderTest.test_classpath" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="small_spring_2" />
+    <configuration name="ApiTest.test_compareTo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="small_spring" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.zy.springframework.test.*" />
@@ -140,15 +176,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.zy.springframework.test" />
-      <option name="MAIN_CLASS_NAME" value="com.zy.springframework.test.ResourceLoaderTest" />
-      <option name="METHOD_NAME" value="test_classpath" />
+      <option name="MAIN_CLASS_NAME" value="com.zy.springframework.test.ApiTest" />
+      <option name="METHOD_NAME" value="test_compareTo" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ResourceLoaderTest.test_file" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="small_spring_2" />
+    <configuration name="ApiTest.test_dynamic" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="small_spring" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.zy.springframework.test.*" />
@@ -156,15 +192,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.zy.springframework.test" />
-      <option name="MAIN_CLASS_NAME" value="com.zy.springframework.test.ResourceLoaderTest" />
-      <option name="METHOD_NAME" value="test_file" />
+      <option name="MAIN_CLASS_NAME" value="com.zy.springframework.test.ApiTest" />
+      <option name="METHOD_NAME" value="test_dynamic" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ResourceLoaderTest.test_url" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="small_spring_2" />
+    <configuration name="ApiTest.test_event" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="small_spring" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.zy.springframework.test.*" />
@@ -172,15 +208,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.zy.springframework.test" />
-      <option name="MAIN_CLASS_NAME" value="com.zy.springframework.test.ResourceLoaderTest" />
-      <option name="METHOD_NAME" value="test_url" />
+      <option name="MAIN_CLASS_NAME" value="com.zy.springframework.test.ApiTest" />
+      <option name="METHOD_NAME" value="test_event" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="XmlBeanRegistryTest.test_xml" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="small_spring_2" />
+    <configuration name="ApiTest.test_string" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="small_spring" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.zy.springframework.test.*" />
@@ -188,8 +224,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.zy.springframework.test" />
-      <option name="MAIN_CLASS_NAME" value="com.zy.springframework.test.XmlBeanRegistryTest" />
-      <option name="METHOD_NAME" value="test_xml" />
+      <option name="MAIN_CLASS_NAME" value="com.zy.springframework.test.ApiTest" />
+      <option name="METHOD_NAME" value="test_string" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -197,11 +233,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.XmlBeanRegistryTest.test_xml" />
-        <item itemvalue="JUnit.ApiTest.test_BeanFactoryPostProcessorAndBeanPostProcessor" />
-        <item itemvalue="JUnit.ResourceLoaderTest.test_url" />
-        <item itemvalue="JUnit.ResourceLoaderTest.test_file" />
-        <item itemvalue="JUnit.ResourceLoaderTest.test_classpath" />
+        <item itemvalue="JUnit.ApiTest.test_compareTo" />
+        <item itemvalue="JUnit.ApiTest.test_string" />
+        <item itemvalue="JUnit.ApiTest.test_aop" />
+        <item itemvalue="JUnit.ApiTest.test_dynamic" />
+        <item itemvalue="JUnit.ApiTest.test_event" />
       </list>
     </recent_temporary>
   </component>
@@ -215,6 +251,12 @@
       <updated>1658844038573</updated>
       <workItem from="1658844041440" duration="839000" />
       <workItem from="1658890236784" duration="17418000" />
+      <workItem from="1659496646141" duration="128000" />
+      <workItem from="1659603126824" duration="7842000" />
+      <workItem from="1659706967673" duration="4910000" />
+      <workItem from="1659787075103" duration="5817000" />
+      <workItem from="1659834638968" duration="596000" />
+      <workItem from="1659921911474" duration="3642000" />
     </task>
     <servers />
   </component>
@@ -231,5 +273,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

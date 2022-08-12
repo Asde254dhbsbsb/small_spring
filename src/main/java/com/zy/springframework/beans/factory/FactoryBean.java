@@ -1,9 +1,9 @@
 package com.zy.springframework.beans.factory;
-
-import java.lang.reflect.Type;
-
+/**
+ * 定义FactoryBean接口
+ * */
 public interface FactoryBean<T>{
-    T getObject();
+    T getObject(); // 获取FactoryBean里的对象bean
     Class<?> getObjectType();
     boolean isSingleton();
 }

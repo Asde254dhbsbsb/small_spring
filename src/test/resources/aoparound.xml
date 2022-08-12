@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean id = "user1Service" class="com.zy.springframework.test.aoptest.User1Service"/>
+    <bean id="beforeAdvice" class="com.zy.springframework.test.aoptest.UserServiceBeforeAdvice"/>
+    <bean id="methodInterceptor" class="com.zy.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor">
+        <property name="advice" ref="beforeAdvice"/>
+    </bean>
+    <bean id="pointcutAdvisor" class="com.zy.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+        <property name="expression" value="execution(* com.zy.springframework.test.aoptest.IUserService.*(..))"/>
+        <property name="advice" ref="methodInterceptor"/>
+    </bean>
+
+
+</beans>

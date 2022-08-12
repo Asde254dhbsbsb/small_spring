@@ -31,12 +31,17 @@ public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry{
         return singletonObjects.get(beanName);
     }
 
+    @Override
+    public void registerSingleton(String beanName, Object singletonObject) {
+        singletonObjects.put(beanName, singletonObject);
+    }
+
     /**
      * 实现一个受保护的添加单例对象的方法，可以被继承此类的其他类调用， 如AbstractBeanFactory等
      * */
-    protected void addSingleton(String beanName, Object singletonObject) {
-        singletonObjects.put(beanName, singletonObject);
-    }
+
+
+
 
     protected void registerDisposableBean(String beanName, DisposableBean bean) {
         disposableBeans.put(beanName, bean);

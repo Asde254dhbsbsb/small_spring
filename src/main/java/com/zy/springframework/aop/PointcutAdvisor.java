@@ -1,0 +1,6 @@
+package com.zy.springframework.aop;
+
+public interface PointcutAdvisor extends Advisor{
+
+    Pointcut getPointcut();
+}
